@@ -1,12 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
-import firstHook from './firstHook.jsx';
-import Test from './firstHook.jsx';
+import Todo from './Todo.jsx';
+
 
 function App() {
   return (
     <div className="App">
-      <Test/>
+      <Todo/>
     </div>
   );
 }
