@@ -1,17 +1,15 @@
 import React, { useState } from 'react';
 import TaskDetails from './TaskDetails';
+import Summary from './Summary';
 
 function Todo(){
-
-    
     const [input, setInput] = useState('');
     const [list, setList] = useState([]);
-    // const [list, setList] = useState([{title:'a', checked: true},{title:'b', checked: false}]);
+    const [hideCheckedTasks, setHideCheckedTasks] = useState(false);
 
     function handleSubmit(event){
         onCreateItem();
         event.preventDefault();
-
     }
 
     function handleCreateFieldChange(event){
@@ -21,7 +19,7 @@ function Todo(){
     function onCreateItem(){
         if (input)
         {
-            setList([input, ...list]);
+            setList([{title:input, checked:false}, ...list]);
             setInput('');
         }
         else {
@@ -37,8 +35,28 @@ function Todo(){
 
     function editItemFromList(key, newValue){
         let listCopy = [...list];
-        listCopy[key] = newValue;
+        listCopy[key].title = newValue;
         setList(listCopy);
+    }
+
+    function checkedItemFromList(key){
+        let listCopy = [...list];
+        listCopy[key].checked = !listCopy[key].checked;
+        setList(listCopy);
+    }
+
+    function handleHideAndDisplayCheckedTasks(){
+        setHideCheckedTasks(!hideCheckedTasks);
+    }
+
+    function displayTask(item, key){
+        if(hideCheckedTasks && item.checked){
+            return null;
+        }
+
+        return(
+            <TaskDetails task={item} index={key} key={key} editItem={editItemFromList} deleteItem={removeItemFromList} checkItem={checkedItemFromList} />
+        );
     }
 
     return (
@@ -47,9 +65,13 @@ function Todo(){
             <input value={input} onChange={handleCreateFieldChange}/>
             <input type="submit" value="Add"/>
             </form>
-            {list.map((item, key) => <TaskDetails taskTitle={item} index={key} key={key} editItem={editItemFromList} deleteItem={removeItemFromList} />)} 
+            <div>
+             <input type="checkbox" checked={hideCheckedTasks} onClick={handleHideAndDisplayCheckedTasks} />
+            <label>Hide checked tasks</label>
+            </div>
+            {list.map(displayTask)} 
+            <Summary list={list} />
         </div>
-
     );
 }
 
