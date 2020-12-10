@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import TaskDetails from './TaskDetails';
 import Summary from './Summary';
+import './Todo.css';
 
 function Todo(){
     const [input, setInput] = useState('');
@@ -62,8 +63,8 @@ function Todo(){
     return (
         <div>
             <form onSubmit={handleSubmit}>
-            <input value={input} onChange={handleCreateFieldChange}/>
-            <input type="submit" value="Add"/>
+            <input value={input} onChange={handleCreateFieldChange} placeholder="Add a task"/>
+            <input type="submit" value="+" className="add-button"/>
             </form>
             <div>
              <input type="checkbox" checked={hideCheckedTasks} onClick={handleHideAndDisplayCheckedTasks} />
