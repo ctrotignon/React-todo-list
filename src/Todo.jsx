@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import {framer} from 'framer-motion';
 import TaskDetails from './TaskDetails';
 import Summary from './Summary';
 import './Todo.css';
@@ -64,7 +65,8 @@ function Todo(){
         <div>
             <form onSubmit={handleSubmit}>
             <input value={input} onChange={handleCreateFieldChange} placeholder="Add a task"/>
-            <input type="submit" value="+" className="add-button"/>
+            <motion.input type="submit" value="+" className="add-button"/
+            initial={{}}>
             </form>
             <div>
              <input type="checkbox" checked={hideCheckedTasks} onClick={handleHideAndDisplayCheckedTasks} />
