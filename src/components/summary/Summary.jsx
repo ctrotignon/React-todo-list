@@ -1,6 +1,5 @@
 import React from 'react'
 
-
 export default function Summary(props){
     function countCheckedItems(){
         let counter = 0;

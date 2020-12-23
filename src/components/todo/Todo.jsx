@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import { framer } from "framer-motion";
-import TaskDetails from "./TaskDetails";
-import Summary from "./Summary";
+import TaskDetails from "../taskDetails/TaskDetails";
+import Summary from "../summary/Summary";
 import "./Todo.css";
 
 function Todo() {
