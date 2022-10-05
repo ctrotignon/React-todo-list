@@ -1,6 +1,5 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Todo list
+First project using react, the goal was to discovered the concept of components and the useState statement.
 
 ## Available Scripts
 
