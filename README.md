@@ -15,8 +15,6 @@ Remove task
 Dark theme
 Possibility to store medias
 
-##
-
 ## Available Scripts
 
 In the project directory, you can run:
