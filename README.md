@@ -1,6 +1,22 @@
 ## Todo list
 First project using react, the goal was to discovered the concept of components and the useState statement.
 
+
+## Implemented features
+
+List task
+Add task
+Check the task when it's done
+Change status of the task : completed/ not ccompleted
+Remove task
+
+## Future features 
+
+Dark theme
+Possibility to store medias
+
+##
+
 ## Available Scripts
 
 In the project directory, you can run:
